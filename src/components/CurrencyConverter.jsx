@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 
 function CurrencyConverter(){
     const [currencys, setCurrencys] = useState([]);
+    const [input, setInput] = useState();
+    const [base, setBase] = useState('USD');
+    const [target, setTarget] = useState('EUR');
     
     useEffect(() =>{
 
@@ -15,15 +18,18 @@ function CurrencyConverter(){
 
         loadApi()
 
-
-    
+        
     }), [];
     
+    function HandleChangeInput(e){
+        setInput(e.target.value);
+    }
 
     
     return(
         <div>
-
+            <h1>Currency Converter</h1>
+            <input onChange={HandleChangeInput} value={input} type="number"></input>
         </div>
     )
 }
