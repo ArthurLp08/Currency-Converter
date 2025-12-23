@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 function CurrencyConverter(){
     const [currencys, setCurrencys] = useState([]);
     const [input, setInput] = useState();
-    const [base, setBase] = useState('usd');
-    const [target, setTarget] = useState('eur');
+    const [base, setBase] = useState("usd");
+    const [target, setTarget] = useState("eur");
     
     useEffect(() =>{
 
@@ -15,6 +15,7 @@ function CurrencyConverter(){
                 setCurrencys(json);
             })
         }
+
 
         loadApi()
 
@@ -27,9 +28,10 @@ function CurrencyConverter(){
     function HandleChangeStart(e){
         setBase(e.target.value);
     }
+    function HandleChangeTarget(e){
+        setTarget(e.target.value);
+    }
 
-
-    
     return(
         <div>
             <h1>Currency Converter</h1>
@@ -42,7 +44,7 @@ function CurrencyConverter(){
                 <option value="eur">EUR</option>
             </select>
             <h3>Target Currency</h3>
-            <select>
+            <select value={target} onChange={HandleChangeTarget}>
                 <option value="eur">EUR</option>
                 <option value="usd">USD</option>
                 <option value="brl">BRL</option>
