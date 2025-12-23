@@ -1,6 +1,6 @@
 # 💵 Currency Converter
 
-A Simple react site that converts currencys with the use of an API
+A Simple react app that converts currencys with the use of an API
 
 # 📦 Technologies
 
