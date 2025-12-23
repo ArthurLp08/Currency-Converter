@@ -6,6 +6,9 @@ function CurrencyConverter(){
     const [base, setBase] = useState("usd");
     const [target, setTarget] = useState("eur");
     const [converted, setConverted] = useState(0);
+    const formatter = new Intl.NumberFormat('en-US',{
+         minimumFractionDigits: 1
+    });
 
     
     function loadApi(){
@@ -55,7 +58,7 @@ function CurrencyConverter(){
                 <option value="brl">BRL</option>
             </select>
             <button onClick={HandleSubmit} type="submit">Convert</button>
-            <h3>Converted currency: {converted} {target.toUpperCase()}</h3>
+            <h3>Converted currency: {formatter.format(converted)} {target.toUpperCase()}</h3>
         </form>
     )
 }
