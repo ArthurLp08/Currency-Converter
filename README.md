@@ -7,7 +7,7 @@ A Simple react site that converts currencys with the use of an API
 - `React.js`
 - `Vite`
 - `Tailwindcss`
-- `[fawazahmed0's Exchange API](https://github.com/fawazahmed0/exchange-api)`
+- [fawazahmed0's Exchange API](https://github.com/fawazahmed0/exchange-api)
 
 # 🚦 Running the project
 
