@@ -2,26 +2,26 @@ import { useEffect, useState } from "react";
 
 function CurrencyConverter(){
     const [currencys, setCurrencys] = useState([]);
-    const [input, setInput] = useState();
+    const [input, setInput] = useState(0);
     const [base, setBase] = useState("usd");
     const [target, setTarget] = useState("eur");
+    const [converted, setConverted] = useState(0);
+
     
+    function loadApi(){
+        fetch('https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/'+ base + '.json')
+        .then((r) => r.json())
+        .then((json) => {
+            setCurrencys(json);
+            return true;
+        })
+    }
+
     useEffect(() =>{
-
-        function loadApi(){
-            fetch('https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/'+ base + '.json')
-            .then((r) => r.json())
-            .then((json) => {
-                setCurrencys(json);
-            })
-        }
-
-
         loadApi()
+    }), [];
 
         
-    }), [];
-    
     function HandleChangeInput(e){
         setInput(e.target.value);
     }
@@ -32,8 +32,13 @@ function CurrencyConverter(){
         setTarget(e.target.value);
     }
 
+    function HandleSubmit(e){
+        e.preventDefault();
+        setConverted(input * currencys[base][target]);
+    }
+
     return(
-        <div>
+        <form>
             <h1>Currency Converter</h1>
             <h3>{base.toUpperCase()} to {target.toUpperCase()} converter</h3>
             <input onChange={HandleChangeInput} value={input} type="number"></input>
@@ -49,7 +54,9 @@ function CurrencyConverter(){
                 <option value="usd">USD</option>
                 <option value="brl">BRL</option>
             </select>
-        </div>
+            <button onClick={HandleSubmit} type="submit">Convert</button>
+            <h3>Converted currency: {converted} {target.toUpperCase()}</h3>
+        </form>
     )
 }
 
