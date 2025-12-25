@@ -18,9 +18,7 @@ To run this project locally:
 3. Run npm run dev or yarn start to get the project started.
 4. Open the addres that's shown in your terminal in your web browser to see the app.
 
-Or use the live demo:
-
-[Live Demo](https://currency-converter-pied-mu.vercel.app)
+Or use the [Live Demo](https://currency-converter-pied-mu.vercel.app)
 
 # 💻 Screenshot
 
